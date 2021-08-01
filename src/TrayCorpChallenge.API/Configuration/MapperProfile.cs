@@ -8,9 +8,9 @@ using TrayCorpChallenge.Domain.Enitites;
 
 namespace TrayCorpChallenge.API.Configuration
 {
-    public class AutoMapperConfiguration : Profile
+    public class MapperProfile : Profile
     {
-        public AutoMapperConfiguration()
+        public MapperProfile()
         {
             CreateMap<Product, ProductDTO>().ReverseMap();
         }

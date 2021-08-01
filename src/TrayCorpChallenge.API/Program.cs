@@ -21,6 +21,7 @@ namespace TrayCorpChallenge.API
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+
                 });
     }
 }

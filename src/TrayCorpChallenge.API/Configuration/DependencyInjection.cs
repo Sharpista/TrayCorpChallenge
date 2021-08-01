@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using TrayCorpChallenge.DataAcess.Context;
 using TrayCorpChallenge.DataAcess.Repositories;
 using TrayCorpChallenge.Domain.Interfaces.Repositories;
@@ -12,12 +13,11 @@ namespace TrayCorpChallenge.API.Configuration
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection DepencyResolvers(this IServiceCollection services)
+        public static IServiceCollection DependencyResolvers(this IServiceCollection services)
         {
             services.AddScoped<ProductContext>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IProductService, ProductService>();
-
             return services;
         }
     }
