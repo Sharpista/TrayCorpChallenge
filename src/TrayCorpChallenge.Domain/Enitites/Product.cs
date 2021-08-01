@@ -18,11 +18,12 @@ namespace TrayCorpChallenge.Domain.Enitites
         }
         public Product(string name, bool inventory, decimal value)
         {
+           
             Name = name;
             Inventory = inventory;
             Value = value;
 
-            AddNotifications(new CreateProductContract(this));
+            //AddNotifications(new CreateProductContract(this));
 
         }
         

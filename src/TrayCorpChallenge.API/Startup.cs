@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using TrayCorpChallenge.API.Configuration;
 using TrayCorpChallenge.DataAcess.Context;
 using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace TrayCorpChallenge.API
 {
@@ -41,7 +42,7 @@ namespace TrayCorpChallenge.API
 
             var connectionString = Configuration.GetConnectionString("ProductDB");
             services.AddDbContext<ProductContext>(option =>
-            option.UseSqlServer(connectionString));
+            option.UseMySql(connectionString, new MySqlServerVersion(new Version(8,0,25)), mySqlOptionsAction => mySqlOptionsAction.CharSetBehavior(CharSetBehavior.NeverAppend)));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

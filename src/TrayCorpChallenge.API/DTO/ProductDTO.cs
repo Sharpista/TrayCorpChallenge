@@ -13,7 +13,9 @@ namespace TrayCorpChallenge.API.DTO
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         public string Name { get; set; }
         public bool Invetory { get; set; }
+
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
-        public double Valor { get; set; }
+        [RegularExpression(@"^\d+.?\d{0,2}$", ErrorMessage = "Valor Invalido {0}; Maximo 2 Casas Decimais.")]
+        public decimal Valor { get; set; }
     }
 }

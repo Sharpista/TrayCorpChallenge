@@ -14,7 +14,7 @@ namespace TrayCorpChallenge.Test.Entities
         private  Product _product;
         private  string  _name = "Livro";
         private  bool _inventory = true;
-        private  decimal _value = 0;
+        private  decimal _value = 0M;
 
 
         [TestMethod]

@@ -9,6 +9,6 @@ namespace TrayCorpChallenge.Domain.Interfaces.Repositories
 {
     public interface IProductRepository : IRepository<Product>
     {
-
+        Task<IEnumerable<Product>> GetByName(string name);
     }
 }

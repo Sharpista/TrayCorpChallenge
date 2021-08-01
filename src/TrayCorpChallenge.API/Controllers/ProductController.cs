@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using TrayCorpChallenge.API.DTO;
 using TrayCorpChallenge.Domain.Enitites;
@@ -36,10 +35,10 @@ namespace TrayCorpChallenge.API.Controllers
         }
 
         [HttpGet]
-        [Route("Product/{name}")]
-        public async Task<ActionResult<ProductDTO>>GetByName(string name)
+        [Route("/{name}")]
+        public async Task<ActionResult<IEnumerable<ProductDTO>>>GetByName(string name)
         {
-            var product = _mapper.Map<ProductDTO>(await _productService.GetProductByName(name));
+            var product = _mapper.Map<IEnumerable<ProductDTO>>(await _productService.GetProductByName(name));
 
             if(product == null)
             {
@@ -49,10 +48,10 @@ namespace TrayCorpChallenge.API.Controllers
             return Ok(product);
         }
         [HttpGet]
-        [Route("Orderly/{anything}")]
-        public async Task<ActionResult<IEnumerable<ProductDTO>>>GetAllOrderly(int anything)
+        [Route("Orderly/{field}")]
+        public async Task<ActionResult<IEnumerable<ProductDTO>>>GetAllOrderly(string field)
         {
-            var products = _mapper.Map<IEnumerable<ProductDTO>>(await _productService.GetAllProductsOrderByAnything(anything));
+            var products = _mapper.Map<IEnumerable<ProductDTO>>(await _productService.GetAllProductsOrderByAnything(field));
 
             return Ok(products);
         }
@@ -66,7 +65,7 @@ namespace TrayCorpChallenge.API.Controllers
             await _productService.AddProduct(product);
 
 
-            return Ok(product);
+            return Ok();
         }
 
         [HttpPut("{id:guid}")]
@@ -83,8 +82,7 @@ namespace TrayCorpChallenge.API.Controllers
             return Ok(product);
         }
 
-        [HttpDelete]
-        [Route("Delete/{name}")]
+        [HttpDelete("{id:guid}")]
         public async Task<ActionResult<ProductDTO>> Delete(string name)
         {
             var product = _mapper.Map<ProductDTO>(await _productService.GetProductByName(name));

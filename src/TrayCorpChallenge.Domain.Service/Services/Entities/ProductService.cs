@@ -21,28 +21,26 @@ namespace TrayCorpChallenge.Domain.Service.Services.Entities
             return await _productRepository.GetAll();
         }
 
-        public virtual async Task<IEnumerable<Product>> GetAllProductsOrderByAnything(int anything)
+        public virtual async Task<IEnumerable<Product>> GetAllProductsOrderByAnything(string anything)
         {
             var products = await _productRepository.GetAll();
+
+            if (anything == "Name")
+                products.OrderBy(x => x.Name);
+
+            else if (anything == "Inventory")
+                products.OrderBy(x => x.Inventory);
+
+            else if (anything == "Value")
+                products.OrderBy(x => x.Value);
+
+            else
+                return null;
             
-            switch (anything)
-            {
-                case 1:
-                    products.OrderBy(x => x.Name);
-                    break;
-                case 2:
-                    products.OrderBy(x => x.Inventory);
-                    break;
-                case 3:
-                    products.OrderBy(x => x.Value);
-                    break;
-                default:
-                    break;
-            }
             return products;
         }
 
-        public async Task<Product> GetProductByName(string name)
+        public virtual async Task<IEnumerable<Product>> GetProductByName(string name)
         {
             return await _productRepository.GetByName(name);
         }

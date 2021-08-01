@@ -23,7 +23,8 @@ namespace TrayCorpChallenge.DataAcess.Mapping
             builder
                 .Property(x => x.Inventory);
             builder
-                .Property(x => x.Value);
+                .Property(x => x.Value)
+                .HasPrecision(18, 2);
 
           
 

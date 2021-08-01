@@ -26,11 +26,7 @@ namespace TrayCorpChallenge.DataAcess.Repositories
             return await DbSet.ToListAsync();
         }
 
-        public virtual  Task<TEntity> GetByName(string name)
-        {
-            return null;
-        }
-
+        
         public virtual async Task Add(TEntity entity)
         {
             DbSet.Add(entity);

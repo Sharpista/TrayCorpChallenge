@@ -15,9 +15,9 @@ namespace TrayCorpChallenge.DataAcess.Repositories
         public ProductRepository(ProductContext productContext) : base(productContext)
         {
         }
-        public async  override Task<Product> GetByName(string name)
+        public async Task<IEnumerable<Product>> GetByName(string name)
         {
-            return await DbSet.AsNoTracking().SingleOrDefaultAsync(x => x.Name == name);
+            return await DbSet.Where(x => x.Name == name).ToListAsync();
         }
     }
 }

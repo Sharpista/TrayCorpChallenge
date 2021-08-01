@@ -22,6 +22,14 @@ namespace TrayCorpChallenge.DataAcess.Context
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductContext).Assembly);
             base.OnModelCreating(modelBuilder);
             modelBuilder.Ignore<Notification>();
+
+            modelBuilder.Entity<Product>().HasData(
+                new Product("Aspirador de Pó", true, 100.00M),
+                new Product("Casaco", true, 30.00M), 
+                new Product("Abajur", true, 20.00M), 
+                new Product("Comoda", true, 350.00M),
+                new Product("Espelho", true, 80.00M) );
+            
         }
     }
 }
