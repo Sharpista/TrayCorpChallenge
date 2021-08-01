@@ -13,7 +13,7 @@ namespace TrayCorpChallenge.Shared.Entities
         {
             Id = Guid.NewGuid();
         }
-        public virtual Guid Id { get; private set; }
+        public virtual Guid Id { get; set; }
 
 
        

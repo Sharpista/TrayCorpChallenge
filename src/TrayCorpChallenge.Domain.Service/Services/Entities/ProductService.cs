@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TrayCorpChallenge.Domain.Enitites;
+using TrayCorpChallenge.Domain.Enumerator;
 using TrayCorpChallenge.Domain.Interfaces.Repositories;
 
 namespace TrayCorpChallenge.Domain.Service.Services.Entities
@@ -17,42 +18,52 @@ namespace TrayCorpChallenge.Domain.Service.Services.Entities
         }
         public virtual async Task<IEnumerable<Product>> GetAllProducts()
         {
-            return await _productRepository.GetAllProducts();
+            return await _productRepository.GetAll();
         }
 
-        public virtual async Task<IEnumerable<Product>> GetAllProductsOrderByAnything(string anything)
+        public virtual async Task<IEnumerable<Product>> GetAllProductsOrderByAnything(int anything)
         {
-            var products = await _productRepository.GetAllProducts();
-
+            var products = await _productRepository.GetAll();
+            
             switch (anything)
             {
-                case "Inventoy":
+                case 1:
+                    products.OrderBy(x => x.Name);
+                    break;
+                case 2:
+                    products.OrderBy(x => x.Inventory);
+                    break;
+                case 3:
+                    products.OrderBy(x => x.Value);
+                    break;
+                default:
+                    break;
             }
+            return products;
         }
 
-        public Task<Product> GetProductByName(string name)
+        public async Task<Product> GetProductByName(string name)
         {
-            throw new NotImplementedException();
+            return await _productRepository.GetByName(name);
         }
-        public Task AddProduct(Product entity)
+        public async Task AddProduct(Product entity)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task Delete(Guid id)
-        {
-            throw new NotImplementedException();
+            await _productRepository.Add(entity);
         }
 
+        public async Task Delete(Guid id)
+        {
+            await _productRepository.Delete(id);
+        }
+
+        public async Task UpdateProduct(Product entity)
+        {
+            await _productRepository.Add(entity);
+        }
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _productRepository?.Dispose();
         }
 
-
-        public Task UpdateProduct(Product entity)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

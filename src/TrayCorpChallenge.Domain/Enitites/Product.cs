@@ -11,6 +11,10 @@ namespace TrayCorpChallenge.Domain.Enitites
 {
     public class Product : Entity
     {
+        public Product()
+        {
+
+        }
         public Product(string name, bool inventory, double value)
         {
             Name = name;

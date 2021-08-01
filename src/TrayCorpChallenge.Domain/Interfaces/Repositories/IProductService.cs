@@ -15,6 +15,6 @@ namespace TrayCorpChallenge.Domain.Interfaces.Repositories
         Task<IEnumerable<Product>> GetAllProducts();
         Task UpdateProduct(Product entity);
         Task Delete(Guid id);
-        Task<IEnumerable<Product>> GetAllProductsOrderByAnything(string anything);
+        Task<IEnumerable<Product>> GetAllProductsOrderByAnything(int anything);
     }
 }

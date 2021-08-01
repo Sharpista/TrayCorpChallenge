@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\TrayCorpChallenge.Domain\TrayCorpChallenge.Domain.csproj" />
+    <ProjectReference Include="..\TrayCorpChallenge.Domain\TrayCorpChallenge.Domain.csproj" />
   </ItemGroup>
 
 </Project>

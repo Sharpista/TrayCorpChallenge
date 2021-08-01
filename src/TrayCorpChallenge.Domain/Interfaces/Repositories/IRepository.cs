@@ -10,10 +10,10 @@ namespace TrayCorpChallenge.Domain.Interfaces.Repositories
 {
     public interface IRepository<TEntity> : IDisposable where TEntity : Entity
     {
-        Task AddProduct(TEntity entity);
-        Task<TEntity> GetProductByName(string name);
-        Task<IEnumerable<TEntity>> GetAllProducts();
-        Task UpdateProduct(TEntity entity);
+        Task Add(TEntity entity);
+        Task<TEntity> GetByName(string name);
+        Task<IEnumerable<TEntity>> GetAll();
+        Task Update(TEntity entity);
         Task Delete(Guid id);
         Task<int> SaveChanges();
 
