@@ -1,6 +1,7 @@
 ﻿using Flunt.Validations;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace TrayCorpChallenge.Domain.Enitites
         {
 
         }
-        public Product(string name, bool inventory, double value)
+        public Product(string name, bool inventory, decimal value)
         {
             Name = name;
             Inventory = inventory;
@@ -27,7 +28,9 @@ namespace TrayCorpChallenge.Domain.Enitites
         
         public virtual string Name { get; private set; }
         public virtual bool Inventory { get; private set; }
-        public virtual double Value { get; private set; }
+
+        [Column(TypeName = "decimal(18,2")]
+        public virtual decimal Value { get; private set; }
 
        
     }

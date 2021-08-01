@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Flunt.Notifications;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
@@ -17,11 +18,17 @@ namespace TrayCorpChallenge.DataAcess.Mapping
                 .HasKey(x => x.Id);
 
             builder
-                .Property(x => x.Inventory)
+                .Property(x => x.Name)
                 .IsRequired();
             builder
-                .Property(x => x.Value)
-                .IsRequired();
+                .Property(x => x.Inventory);
+            builder
+                .Property(x => x.Value);
+
+          
+
+
+
         }
     }
 }

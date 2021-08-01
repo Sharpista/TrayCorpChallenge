@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Flunt.Notifications;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace TrayCorpChallenge.DataAcess.Context
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductContext).Assembly);
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Ignore<Notification>();
         }
     }
 }
