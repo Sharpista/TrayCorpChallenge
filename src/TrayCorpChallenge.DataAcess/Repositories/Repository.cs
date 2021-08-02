@@ -26,7 +26,7 @@ namespace TrayCorpChallenge.DataAcess.Repositories
             return await DbSet.ToListAsync();
         }
 
-        
+
         public virtual async Task Add(TEntity entity)
         {
             DbSet.Add(entity);
@@ -44,15 +44,19 @@ namespace TrayCorpChallenge.DataAcess.Repositories
             await SaveChanges();
         }
 
-        public virtual async  Task<int> SaveChanges()
+        public virtual async Task<int> SaveChanges()
         {
             return await Db.SaveChangesAsync();
-            
+
         }
         public void Dispose()
         {
             Db?.Dispose();
         }
 
+        public virtual async Task<TEntity> GetById(Guid id)
+        {
+            return await DbSet.AsNoTracking().SingleOrDefaultAsync(x => x.Id == id);
+        }
     }
 }

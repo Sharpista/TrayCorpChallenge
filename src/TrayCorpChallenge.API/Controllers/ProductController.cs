@@ -35,15 +35,10 @@ namespace TrayCorpChallenge.API.Controllers
         }
 
         [HttpGet]
-        [Route("/{name}")]
+        [Route("Products/{name}")]
         public async Task<ActionResult<IEnumerable<ProductDTO>>>GetByName(string name)
         {
             var product = _mapper.Map<IEnumerable<ProductDTO>>(await _productService.GetProductByName(name));
-
-            if(product == null)
-            {
-                return NotFound();
-            }
 
             return Ok(product);
         }
@@ -83,15 +78,15 @@ namespace TrayCorpChallenge.API.Controllers
         }
 
         [HttpDelete("{id:guid}")]
-        public async Task<ActionResult<ProductDTO>> Delete(string name)
+        public async Task<ActionResult<ProductDTO>> Delete(Guid id)
         {
-            var product = _mapper.Map<ProductDTO>(await _productService.GetProductByName(name));
+            var product = _mapper.Map<ProductDTO>(await _productService.GetProductById(id));
 
             if (product == null) return NotFound();
 
             await _productService.Delete(product.Id);
 
-            return Ok(product);
+            return Ok();
         }
     }
 }

@@ -26,11 +26,11 @@ namespace TrayCorpChallenge.DataAcess.Migrations
                 columns: new[] { "Id", "Inventory", "Name", "Value" },
                 values: new object[,]
                 {
-                    { new Guid("72e7443d-a9ef-4c24-9685-950fbab975e7"), true, "Aspirador de Pó", 100.00m },
-                    { new Guid("a04c11eb-6aa3-4d66-bf57-8e0888112be3"), true, "Casaco", 30.00m },
-                    { new Guid("320efb40-e77f-4bb3-b4dc-8af179dc343a"), true, "Abajur", 20.00m },
-                    { new Guid("f32f6047-02ee-44f7-94f9-c32e2191ff62"), true, "Comoda", 350.00m },
-                    { new Guid("eabfffc1-5bca-437a-b7e8-cd8ded132358"), true, "Espelho", 80.00m }
+                    { new Guid("89e27947-d1c4-4aab-bf03-b0adf8bfcb19"), true, "Aspirador de Pó", 100.00m },
+                    { new Guid("847716f1-c6c8-4d02-9b05-01b686a0b248"), true, "Casaco", 30.00m },
+                    { new Guid("1fde9e37-dc03-4966-a1cd-edceccfbe597"), true, "Abajur", 20.00m },
+                    { new Guid("6430b90c-8f05-49b7-8ee1-0cd10d6404e7"), true, "Comoda", 350.00m },
+                    { new Guid("54db09d6-2daa-4d53-b3f9-8c524cb08f46"), true, "Espelho", 80.00m }
                 });
         }
 

@@ -1,9 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
 using TrayCorpChallenge.DataAcess.Context;
 using TrayCorpChallenge.DataAcess.Repositories;
 using TrayCorpChallenge.Domain.Interfaces.Repositories;

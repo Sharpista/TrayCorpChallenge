@@ -1,10 +1,4 @@
-﻿using Flunt.Validations;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using TrayCorpChallenge.Domain.Contracts;
 using TrayCorpChallenge.Shared.Entities;
 
@@ -23,7 +17,7 @@ namespace TrayCorpChallenge.Domain.Enitites
             Inventory = inventory;
             Value = value;
 
-            //AddNotifications(new CreateProductContract(this));
+            AddNotifications(new CreateProductContract(this));
 
         }
         

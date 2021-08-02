@@ -14,6 +14,7 @@ namespace TrayCorpChallenge.Domain.Interfaces.Repositories
         Task<IEnumerable<TEntity>> GetAll();
         Task Update(TEntity entity);
         Task Delete(Guid id);
+        Task<TEntity> GetById(Guid id);
         Task<int> SaveChanges();
 
     }

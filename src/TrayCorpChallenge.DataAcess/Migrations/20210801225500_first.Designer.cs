@@ -9,7 +9,7 @@ using TrayCorpChallenge.DataAcess.Context;
 namespace TrayCorpChallenge.DataAcess.Migrations
 {
     [DbContext(typeof(ProductContext))]
-    [Migration("20210801183357_first")]
+    [Migration("20210801225500_first")]
     partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,35 +43,35 @@ namespace TrayCorpChallenge.DataAcess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("72e7443d-a9ef-4c24-9685-950fbab975e7"),
+                            Id = new Guid("89e27947-d1c4-4aab-bf03-b0adf8bfcb19"),
                             Inventory = true,
                             Name = "Aspirador de Pó",
                             Value = 100.00m
                         },
                         new
                         {
-                            Id = new Guid("a04c11eb-6aa3-4d66-bf57-8e0888112be3"),
+                            Id = new Guid("847716f1-c6c8-4d02-9b05-01b686a0b248"),
                             Inventory = true,
                             Name = "Casaco",
                             Value = 30.00m
                         },
                         new
                         {
-                            Id = new Guid("320efb40-e77f-4bb3-b4dc-8af179dc343a"),
+                            Id = new Guid("1fde9e37-dc03-4966-a1cd-edceccfbe597"),
                             Inventory = true,
                             Name = "Abajur",
                             Value = 20.00m
                         },
                         new
                         {
-                            Id = new Guid("f32f6047-02ee-44f7-94f9-c32e2191ff62"),
+                            Id = new Guid("6430b90c-8f05-49b7-8ee1-0cd10d6404e7"),
                             Inventory = true,
                             Name = "Comoda",
                             Value = 350.00m
                         },
                         new
                         {
-                            Id = new Guid("eabfffc1-5bca-437a-b7e8-cd8ded132358"),
+                            Id = new Guid("54db09d6-2daa-4d53-b3f9-8c524cb08f46"),
                             Inventory = true,
                             Name = "Espelho",
                             Value = 80.00m

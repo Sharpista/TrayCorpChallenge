@@ -21,10 +21,10 @@ namespace TrayCorpChallenge.DataAcess.Mapping
                 .Property(x => x.Name)
                 .IsRequired();
             builder
-                .Property(x => x.Inventory);
+                .Property(x => x.Inventory).IsRequired();
             builder
                 .Property(x => x.Value)
-                .HasPrecision(18, 2);
+                .HasPrecision(18, 2).IsRequired();
 
           
 

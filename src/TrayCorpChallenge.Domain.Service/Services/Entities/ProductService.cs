@@ -24,20 +24,32 @@ namespace TrayCorpChallenge.Domain.Service.Services.Entities
         public virtual async Task<IEnumerable<Product>> GetAllProductsOrderByAnything(string anything)
         {
             var products = await _productRepository.GetAll();
+            IEnumerable<Product> order;
 
             if (anything == "Name")
-                products.OrderBy(x => x.Name);
+            {
+                order = from p in products orderby p.Name select p;
+            }
 
             else if (anything == "Inventory")
-                products.OrderBy(x => x.Inventory);
+            {
+                order = from p in products orderby p.Inventory select p;
+
+            }
 
             else if (anything == "Value")
-                products.OrderBy(x => x.Value);
+            {
+                order = from p in products orderby p.Value select p;
+
+            }
 
             else
+            {
                 return null;
+
+            }
             
-            return products;
+            return order;
         }
 
         public virtual async Task<IEnumerable<Product>> GetProductByName(string name)
@@ -54,14 +66,19 @@ namespace TrayCorpChallenge.Domain.Service.Services.Entities
             await _productRepository.Delete(id);
         }
 
+
         public async Task UpdateProduct(Product entity)
         {
-            await _productRepository.Add(entity);
+            await _productRepository.Up(entity);
         }
         public void Dispose()
         {
             _productRepository?.Dispose();
         }
 
+        public async  Task<Product> GetProductById(Guid id)
+        {
+            return await _productRepository.GetById(id);
+        }
     }
 }
